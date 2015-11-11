@@ -3,9 +3,7 @@ class Tweet
 
 	def self.search(handler)
 		base_url = "https://api.twitter.com/1.1/search/tweets.json"
-		since_id = 24012619984051000
-		max_id = 250126199840518145
-
+		
 		data_response = HTTParty.get ("#{base_url}q=%23#{handler}&since_id=#{since_id}&max_id=")
 
 		tweet_text = data_response
