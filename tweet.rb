@@ -11,11 +11,14 @@ class Tweet
 
 		sentiment_response = sentiment_text.map {|text| HTTParty.get ("https://www.tweetsentimentapi.com/api/?key=f96b60fbda0c227488d4544ff70d02297f0f775c&text=#{text}")}
 
+		# sentiment_response = URI.unescape(text, sentiment_parsed_response)
+		# print sentiment_response 
 		
 		positive_tweets = []
 		if sentiment_response[0]["sentiment"] == "positive"
 			positive_tweets.push
 			puts "#{positive_tweets.count} positive tweets were found that mentioned #{search_text}. \n"
+			# I need to add logic here that would use the index of the positive tweet from the sentiment response and push the corresponding index of the tweet text into an new array
 		end 
 
 		# print "#{sentiment_response.count {|response| response["sentiment"] = "positive"}} positive tweets were found that mentioned #{search_text}. \n"
