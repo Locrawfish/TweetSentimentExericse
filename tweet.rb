@@ -15,7 +15,7 @@ class Tweet
 
 end
 
-puts "What twitter handle do you want to search for?"
+puts "Where are the positive vibes on twitter? Input your handle now."
 
 search_text = gets.chomp 
 
