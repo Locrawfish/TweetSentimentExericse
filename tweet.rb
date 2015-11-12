@@ -9,13 +9,16 @@ class Tweet
 		
 		sentiment_text = tweet_text.map {|text| URI.escape(text, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))}
 
-
-		sentiment_response = HTTParty.get ("https://www.tweetsentimentapi.com/api/?key=f96b60fbda0c227488d4544ff70d02297f0f775c&text=#{sentiment_text}")
+		sentiment_response = sentiment_text.map {|text| HTTParty.get ("https://www.tweetsentimentapi.com/api/?key=f96b60fbda0c227488d4544ff70d02297f0f775c&text=#{text}")}
+		if sentiment_response[0] = "positive"
+			print tweet_text 
+		end
+		
 	end
 
 end
 
-puts "Where are the positive vibes on twitter? Input your handle now."
+puts "Who's your promoter on twitter? Input your handle to find out."
 
 search_text = gets.chomp 
 
